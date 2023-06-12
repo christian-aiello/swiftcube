@@ -52,7 +52,7 @@ const Scrambler = ({ scramble, isLoading, event, setEvent, refreshScramble }) =>
                 padding: "0.5em",
                 "&:hover": {
                   cursor: "pointer",
-                  border: "1px solid white",
+                  border: `1px solid`,
                 },
               }}
               onClick={refreshScramble}

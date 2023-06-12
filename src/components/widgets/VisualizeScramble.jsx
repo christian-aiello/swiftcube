@@ -1,15 +1,8 @@
-import { Component, useState } from "react";
+import { useState } from "react";
 import { Card } from "@mui/material";
 import { visualizeScramble } from "../../utils/cubeUtils";
 
-
-const VisualizeScramble = ({
-  scramble,
-  isLoading,
-  event,
-}) => {
-  const [dimension, setDimension] = useState(3);
-
+const VisualizeScramble = ({ scramble, isLoading, event, dimension }) => {
   const events = {
     "3x3x3": "333",
     "2x2x2": "222",
