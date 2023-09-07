@@ -5,6 +5,8 @@ import VisualizeScramble from "./widgets/VisualizeScramble";
 const Widget = ({ scramble, isLoading, event, setEvent, refreshScramble }) => {
   const [widget, setWidget] = useState("2D");
 
+  const notThreeDimensional = ["Clock", "Square-1"];
+
   const components = {
     "2D": (
       <VisualizeScramble
@@ -28,6 +30,10 @@ const Widget = ({ scramble, isLoading, event, setEvent, refreshScramble }) => {
     setWidget(target.props.value);
   };
 
+  if (widget === "3D" && notThreeDimensional.includes(event)) {
+    setWidget("2D");
+  }
+
   return (
     <Card
       variant="outlined"
@@ -50,7 +56,9 @@ const Widget = ({ scramble, isLoading, event, setEvent, refreshScramble }) => {
           onChange={handleChange}
         >
           <MenuItem value={"2D"}>Draw Scramble 2D</MenuItem>
-          <MenuItem value={"3D"}>Draw Scramble 3D</MenuItem>
+          {!notThreeDimensional.includes(event) ? (
+            <MenuItem value="3D">Draw Scramble 3D</MenuItem>
+          ) : null}
         </Select>
       </FormControl>
     </Card>
